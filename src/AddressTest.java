@@ -50,6 +50,7 @@ public class AddressTest {
         }
     }
     
+    @Test
     public void testAddress1_nullCase()
     {
         try {
@@ -61,6 +62,7 @@ public class AddressTest {
         }
     }
     
+    @Test
     public void testAddress1_invalidPostalCode()
     {
         String street = "Deer View Avenue";
@@ -73,6 +75,7 @@ public class AddressTest {
         }
     }
     
+    @Test
     public void testAddress2()
     {
         int unit = 410;
@@ -89,7 +92,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testAddress2_nullCase()
     {
         try {
@@ -100,7 +103,7 @@ public class AddressTest {
             fail("Exception is not a NullPointerException.");
         }
     }
-    
+    @Test
     public void testAddress2_invalidPostalCode()
     {
         int unit = 410;
@@ -113,7 +116,7 @@ public class AddressTest {
             //pass
         }
     }
-    
+    @Test
     public void testToString1()
     {
         String street = "Deer View Avenue";
@@ -126,7 +129,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testToString2()
     {
         int unit = 410;
@@ -140,7 +143,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testEquals1_happy()
     {
         try {
@@ -151,7 +154,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testEquals1_sad()
     {
         try {
@@ -162,7 +165,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testEquals2_happy()
     {
         try {
@@ -173,7 +176,7 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-    
+    @Test
     public void testEquals2_sad()
     {
         try {
@@ -184,8 +187,4 @@ public class AddressTest {
             System.out.println(e);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ad74495ab2dc43b73a171a87cc2ca788afefe9d4

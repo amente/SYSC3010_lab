@@ -7,24 +7,6 @@ public class Course
     private Professor professor;
     private ArrayList<Student>students;
     
-<<<<<<< HEAD
-    public Course( String id, String name) {};
-    
-    public String getId() { return id; }
-    public String getName( ) { return null; }
-
-    public String toString() { return null; }
-    public boolean equals(Object o) { return false; }
-
-    public void setProfessor(Professor professor) {};
-    public Professor getProfessor() { return null; }
-
-    public void addStudent( Student student ) {};
-    public void removeStudent( Student student ) {};
-    public Student[] getStudents() { return null; }
-    
-    
-=======
     public Course( String id, String name)
     {
     	this.id = id;
@@ -62,5 +44,4 @@ public class Course
     {
     	return (Student[])students.toArray();
     }
->>>>>>> ad74495ab2dc43b73a171a87cc2ca788afefe9d4
 }

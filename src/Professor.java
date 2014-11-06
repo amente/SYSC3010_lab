@@ -3,13 +3,7 @@ public class Professor extends Person
 {
    private String office;
 
-<<<<<<< HEAD
-   public Professor(String firstName, String lastName) { };
-   public void setOffice(String office) { }
-   public String getOffice() { return null;}
 
-   // You decide if you need toString() and equals()
-=======
    public Professor(String firstName, String lastName) throws Exception
    {
 	   super(firstName, lastName);
@@ -24,6 +18,6 @@ public class Professor extends Person
    {
 	   return office;
    }
->>>>>>> ad74495ab2dc43b73a171a87cc2ca788afefe9d4
+
 }
 

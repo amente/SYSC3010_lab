@@ -5,24 +5,6 @@ public class Person
    private Address address;
    private ArrayList<Course> courses;
    
-<<<<<<< HEAD
-   public Person( String first, String last) {};
-   
-   public void setLastName( String name) {};
-   public String getLastName() { return null; };
-   public String getFirstName() { return null; };
-   public String getFullName() { return null; };
-
-   public void setAddress(Address address) {};
-   public Address getAddress() { return null; };
-
-   public Course[] getCourses() { return null; }
-   public void addCourse( Course course ) {};
-   public void remove(Course course) {};
-
-    public String toString() { return null; }
-    public boolean equals(Object o) { return false; }
-=======
    public Person( String first, String last) throws Exception
    {
 		   name = new Name(first, last);
@@ -59,7 +41,6 @@ public class Person
 
     public String toString() { return "Person: " + getFullName(); }
     public boolean equals(Object o) { return o instanceof Person && ((Person) o).getFullName().equals(getFullName()); }
->>>>>>> ad74495ab2dc43b73a171a87cc2ca788afefe9d4
 
 }     
 
