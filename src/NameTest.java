@@ -26,8 +26,45 @@ public class NameTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testName()
+	{
+		Name name = new Name("Yuan","Sun");
+		assertEquals("Yuan",name.getFirst());
+		assertEquals("Sun",name.getLast());
 	}
-
+	
+	@Test
+	public void testName_nullCase()
+	{
+		try {
+			Name name = new Name(null,null);
+		}catch(NullPointerException e) {
+			//pass
+		}catch(Exception e) {
+			fail("fail to catch the right exception when passing null to the constructor.");
+		}
+	}
+	
+	@Test
+	public void testToString()
+	{
+		Name name = new Name("Yuan","Sun");
+		assertEquals("Yuan Sun",name.toString());
+	}
+	
+	@Test
+	public void testEquals_happy()
+	{
+		Name name1 = new Name("Yuan","Sun");
+		Name name2 = new Name("Yuan","Sun");
+		assertTrue(name1.equals(name2));
+	}
+	
+	@Test
+	public void testEquals_sad()
+	{
+		Name name1 = new Name("Yuan","Sun");
+		Name name2 = new Name("Amente","Sun");
+		assertFalse(name1.equals(name2));
+	}
 }
