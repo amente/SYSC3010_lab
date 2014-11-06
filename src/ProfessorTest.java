@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,8 +10,11 @@ import org.junit.Test;
 
 public class ProfessorTest {
 
+	static Professor testProfessor;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		testProfessor = new Professor("Bobby", "Chawla");
 	}
 
 	@AfterClass
@@ -28,6 +32,12 @@ public class ProfessorTest {
 	@Test
 	public void test() {
 		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void constructorTest(){
+		assertEquals("Incorrect first name", testProfessor.getFirstName(), "Bobby");
+		assertEquals("Incorrect last name", testProfessor.getLastName(), "Chawla");
 	}
 
 }
