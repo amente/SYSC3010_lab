@@ -5,22 +5,42 @@ public class Person
    private Address address;
    private ArrayList<Course> courses;
    
-   public Person( String first, String last) {};
+   public Person( String first, String last) throws Exception
+   {
+		   name = new Name(first, last);
+		   address = new Address(-1, "N/A", "N/A", "N/A");
+		   courses = new ArrayList<Course>();
+   }
    
-   public void setLastName( String name) {};
-   public String getLastName() { return null; };
-   public String getFirstName() { return null; };
-   public String getFullName() { return null; };
+   public void setLastName( String name)
+   {
+	   this.name.setLast(name);
+   }
+   public String getLastName()
+   {
+	   return name.getLast();
+   }
+   public String getFirstName()
+   {
+	   return name.getFirst();
+   }
+   public String getFullName()
+   {
+	   return name.getFirst() + " " + name.getLast();
+   }
 
-   public void setAddress(Address address) {};
-   public Address getAddress() { return null; };
+   public void setAddress(Address address)
+   {
+	   	this.address = address;
+   }
+   public Address getAddress() { return address; };
 
-   public Course[] getCourses() { return null; }
-   public void addCourse( Course course ) {};
-   public void remove(Course course) {};
+   public Course[] getCourses() { return (Course[]) courses.toArray(); }
+   public void addCourse( Course course ) { courses.add(course); }
+   public void remove(Course course) { courses.remove(course); };
 
-    public String toString() { return null; }
-    public boolean equals(Object o) { return false; }
+    public String toString() { return "Person: " + getFullName(); }
+    public boolean equals(Object o) { return o instanceof Person && ((Person) o).getFullName().equals(getFullName()); }
 
 }     
 
