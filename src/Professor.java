@@ -3,7 +3,7 @@ public class Professor extends Person
 {
    private String office;
 
-   public Professor(String firstName, String lastName)
+   public Professor(String firstName, String lastName) throws Exception
    {
 	   super(firstName, lastName);
    }
