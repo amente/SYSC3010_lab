@@ -1,33 +1,187 @@
-import static org.junit.Assert.*;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+import static org.junit.Assert.*;
 
 public class AddressTest {
+    
+    public AddressTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
+    /**
+     * Test for constructors
+     */
+    @Test
+    public void testAddress1()
+    {
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "K1T 0B8";
+        try {
+            Address address = new Address(street,city,postalCode);
+            assertEquals(street, address.getStreet());
+            assertEquals(city, address.getCity());
+            assertEquals(postalCode, address.getPostalCode());
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testAddress1_nullCase()
+    {
+        try {
+            Address address = new Address(null,null,null);
+        }catch(NullPointerException e) {
+            //pass
+        }catch(Exception e){
+            fail("Exception is not a NullPointerException.");
+        }
+    }
+    
+    public void testAddress1_invalidPostalCode()
+    {
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "1K8 B0A";
+        try {
+            Address address = new Address(street,city,postalCode);
+        }catch(Exception e) {
+            //pass
+        }
+    }
+    
+    public void testAddress2()
+    {
+        int unit = 410;
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "K1T 0B8";
+        try {
+            Address address = new Address(unit,street,city,postalCode);
+            assertEquals(unit,address.getUnit());
+            assertEquals(street, address.getStreet());
+            assertEquals(city, address.getCity());
+            assertEquals(postalCode, address.getPostalCode());
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testAddress2_nullCase()
+    {
+        try {
+            Address address = new Address(0,null,null,null);
+        }catch(NullPointerException e) {
+            //pass
+        }catch(Exception e){
+            fail("Exception is not a NullPointerException.");
+        }
+    }
+    
+    public void testAddress2_invalidPostalCode()
+    {
+        int unit = 410;
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "1K8 B0A";
+        try {
+            Address address = new Address(unit,street,city,postalCode);
+        }catch(Exception e) {
+            //pass
+        }
+    }
+    
+    public void testToString1()
+    {
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "K1T 0B8";
+        try {
+            Address address = new Address(street,city,postalCode);
+            assertEquals("Deer View Avenue, Ottawa, K1T 0B8",address.toString());
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testToString2()
+    {
+        int unit = 410;
+        String street = "Deer View Avenue";
+        String city = "Ottawa";
+        String postalCode = "K1T 0B8";
+        try {
+            Address address = new Address(unit,street,city,postalCode);
+            assertEquals("410 Deer View Avenue, Ottawa, K1T 0B8",address.toString());
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testEquals1_happy()
+    {
+        try {
+            Address address1 = new Address("Deer View Avenue","Ottawa","K1T 0B8");
+            Address address2 = new Address("Deer View Avenue","Ottawa","K1T0B8");
+            assertTrue(address1.equals(address2));
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testEquals1_sad()
+    {
+        try {
+            Address address1 = new Address("Deer View Avenue","Ottawa","K1T 0B8");
+            Address address2 = new Address("Bank Street","Ottawa","K1T 0B8");
+            assertFalse(address1.equals(address2));
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testEquals2_happy()
+    {
+        try {
+            Address address1 = new Address(410,"Deer View Avenue","Ottawa","K1T 0B8");
+            Address address2 = new Address(410,"Deer View Avenue","Ottawa","K1T0B8");
+            assertTrue(address1.equals(address2));
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void testEquals2_sad()
+    {
+        try {
+            Address address1 = new Address(410,"Deer View Avenue","Ottawa","K1T 0B8");
+            Address address2 = new Address(410,"Bank Street","Ottawa","K1T0B8");
+            assertTrue(address1.equals(address2));
+        }catch(Exception e) {
+            System.out.println(e);
+        }
+    }
 }
